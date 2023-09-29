@@ -16,14 +16,16 @@ public class RSocketServerConfig {
 
     @PostConstruct
     public void startServer() {
-        RSocketFactory.receive()
-                .acceptor((setupPayload, reactiveSocket) -> Mono.just(
-                        new RSocketService(kafkaService)))
+      RSocketFactory.receive()
+                .acceptor((setupPayload, reactiveSocket) ->
+                        Mono.just(new RSocketService(kafkaReceiver, kafkaSender))
+                )
                 .transport(WebsocketServerTransport.create("localhost", 8000))
                 .start()
-                .block()
-                .onClose()
-                .block();
+                .doOnNext(server -> {
+                    server.onClose().subscribe();
+                })
+                .subscribe();
     }
 }
 

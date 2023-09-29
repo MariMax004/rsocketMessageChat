@@ -19,7 +19,6 @@ dependencies {
     implementation ("org.springframework.boot:spring-boot-starter-webflux")
     implementation ("io.rsocket:rsocket-core:0.12.1")
     implementation ("io.rsocket:rsocket-transport-netty:0.12.1")
-    implementation("io.projectreactor.kafka:reactor-kafka:1.3.17")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")

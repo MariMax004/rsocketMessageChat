@@ -1,10 +1,10 @@
-package com.example.messagechat;
+package com.example.clientrsocket;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MessageChatApplicationTests {
+class ClientRSocketApplicationTests {
 
     @Test
     void contextLoads() {
